@@ -1,0 +1,375 @@
+<rdf:RDF 
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+xmlns:owl="http://www.w3.org/2002/07/owl#" 
+xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+
+<!--  OWL Class Definition - variants of coronavirus  -->
+<!--  OWL Header  -->
+<owl:Ontology rdf:about="http://www.linkeddatatools.com/Covid-19">
+<dc:title>  Ontology for Coronavirus(Covid-19)</dc:title>
+<dc:description>Building an ontology for Coronavirus using RDF</dc:description>
+</owl:Ontology>
+
+<!--  Define the infecting way By property  -->
+<owl:ObjectProperty rdf:about="http://www.linkeddatatools.com/Covid-19#infectingWays"/>
+
+<!--  Define the precautions property  -->
+<owl:ObjectProperty rdf:about="http://www.linkeddatatools.com/Covid-19#precautions"/>
+
+<!--  Define the symptoms property  -->
+<owl:ObjectProperty rdf:about="http://www.linkeddatatools.com/Covid-19#symptoms"/>
+
+<!--  OWL Class Definition - variants of coronavirus  -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#variants">
+<rdfs:label>Varients of Coronavirus </rdfs:label>
+<rdfs:comment>5 variant types of coronavirus</rdfs:comment>
+</owl:Class>
+
+<!--  OWL Class Definition – Infection Ways  -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#infectingWays">
+<rdfs:label>Infecting ways</rdfs:label>
+<rdfs:comment>5 infecting ways of coronavirus</rdfs:comment>
+</owl:Class>
+
+<!--  OWL Class Definition – Symptoms  -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#symptoms">
+<rdfs:label>Symptoms</rdfs:label>
+<rdfs:comment>5 symptoms of coronavirus </rdfs:comment>
+</owl:Class>
+
+<!--  OWL Class Definition – Precautions  -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#precautions">
+<rdfs:label>Precautions</rdfs:label>
+<rdfs:comment>5 precautions for coronavirus.</rdfs:comment>
+</owl:Class>
+
+<!-- Sub classes of corona virus varients class starts from here -->
+
+<!-- OWL SubClass Definition - SARS-COV-2 -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#sarscov2">
+    <!-- SARS-COV-2 is a subclassification of Corona virus varients -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#variants"/>
+    <rdfs:label>SARS-COV-2</rdfs:label>
+    <rdfs:comment>SARS-COV-2 etc</rdfs:comment>
+</owl:Class>
+
+
+<!--  Define the SARS-COV-2 class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#sarscov2">
+<!--  SARS-COV-2 is an individual of the Corona virus varients class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#variants"/>
+</rdf:Description>
+
+<!-- OWL SubClass Definition - Omicron -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#omicron">
+    <!-- Omicron is a subclassification of Corona virus varients -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#variants"/>
+    <rdfs:label>Omicron</rdfs:label>
+    <rdfs:comment>Omicron etc</rdfs:comment>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:infectingWays rdf:resource="http://www.linkeddatatools.com/Covid-19#lowTemperature"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+
+
+<!--  Define the Omicron class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#omicron">
+<!--  Omicron is an individual of the Corona virus varients class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#variants"/>
+<!--  The Omicron virus spread by avoid wearing masks  -->
+<owl:infectingWays rdf:resource="http://www.linkeddatatools.com/Covid-19#lowTemperature"/>
+</rdf:Description>
+
+<!-- OWL SubClass Definition - Delta -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#delta">
+
+    <!-- Delta is a subclassification of Corona virus varients -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#variants"/>
+    <rdfs:label>Delta</rdfs:label>
+    <rdfs:comment>Delta etc</rdfs:comment>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="http://www.linkeddatatools.com/Covid-19#infectingWays"/>
+            <owl:someValuesFrom rdf:resource="http://www.linkeddatatools.com/Covid-19#infectingWays"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+
+
+<!--  Define the Delta class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#delta">
+<!--  Delta is an individual of the Corona virus varients class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#variants"/>
+<!--  The Delta virus can be prevented by wash hands frequently -->
+<owl:precautions rdf:resource="http://www.linkeddatatools.com/Covid-19#washhands"/>
+</rdf:Description>
+
+<!-- OWL SubClass Definition - Alphab1.1.7 -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#Alphab1.1.7">
+    <!-- Alphab1.1.7 is a subclassification of Corona virus varients -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#variants"/>
+    <rdfs:label>Alphab1.1.7</rdfs:label>
+    <rdfs:comment>Alphab1.1.7 etc</rdfs:comment>
+</owl:Class>
+
+
+<!--  Define the Alphab1.1.7 class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#Alphab1.1.7">
+<!--  Alphab1.1.7 is an individual of the Corona virus varients class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#variants"/>
+</rdf:Description>
+
+<!-- OWL SubClass Definition - GammaP.1 -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#GammaP.1">
+    <!-- GammaP.1 is a subclassification of Corona virus varients -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#variants"/>
+    <rdfs:label>GammaP.1</rdfs:label>
+    <rdfs:comment>GammaP.1 etc</rdfs:comment>
+</owl:Class>
+
+
+<!--  Define the GammaP.1 class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#GammaP.1">
+<!--  GammaP.1 is an individual of the Corona virus varients class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#variants"/>
+<!--  The GammaP.1 virus has symptoms of cough  -->
+<owl:symptoms rdf:resource="http://www.linkeddatatools.com/Covid-19#cough"/>
+</rdf:Description>
+
+
+<!-- Sub classes of infection possibilities class starts from here -->
+<!-- OWL SubClass Definition - Low Temperature -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#lowTemperature">
+    <!-- Low Temperature is a subclassification of Infection Possibilities -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#infectingWays"/>
+    <rdfs:label>Low Temperature</rdfs:label>
+    <rdfs:comment>Low Temperature etc</rdfs:comment>
+</owl:Class>
+
+
+<!--  Define the Low Temperatures class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#lowTemperature">
+<!--  Low Temperature is an individual of the Infection Possibilities class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#infectingWays"/>
+</rdf:Description>
+
+<!-- OWL SubClass Definition - Avoid taking treatments -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#avoidTakingTreatments">
+    <!-- Avoid taking treatments is a subclassification of Infection Possibilities -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#infectingWays"/>
+    <rdfs:label>Avoid taking treatments</rdfs:label>
+    <rdfs:comment>Avoid taking treatments etc</rdfs:comment>
+</owl:Class>
+
+
+<!--  Define the Avoid taking treatments class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#avoidTakingTreatments">
+<!--  Avoid taking treatments is an individual of the Infection Possibilities class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#infectingWays"/>
+</rdf:Description>
+
+<!-- OWL SubClass Definition - Person to person transmission -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#personToPersonTransmission">
+    <!-- Person to person transmission is a subclassification of Infection Possibilities -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#infectingWays"/>
+    <rdfs:label>Person to person transmission</rdfs:label>
+    <rdfs:comment>Person to person transmission etc</rdfs:comment>
+</owl:Class>
+
+
+<!--  Define the Person to person transmission class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#personToPersonTransmission">
+<!--  Person to person transmission is an individual of the Infection Possibilities class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#infectingWays"/>
+</rdf:Description>
+
+<!-- OWL SubClass Definition - Airborn transmission -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#airbornTransmission">
+    <!-- avoid tests is a subclassification of Infection Possibilities -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#infectingWays"/>
+    <rdfs:label>Airborn transmission</rdfs:label>
+    <rdfs:comment>Airborn transmission etc</rdfs:comment>
+</owl:Class>
+
+
+<!--  Define the Avoid wearing masks Temperature class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#airbornTransmission">
+<!--  Airborn transmissions is an individual of the Infection Possibilities class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#infectingWays"/>
+</rdf:Description>
+
+<!-- OWL SubClass Definition - Avoid wearing masks -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#lowtemperature">
+    <!-- Avoid wearing masks is a subclassification of Infection Possibilities -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#infectingWays"/>
+    <rdfs:label>Avoid wearing masks</rdfs:label>
+    <rdfs:comment>Avoid wearing masks etc</rdfs:comment>
+</owl:Class>
+
+
+<!--  Define the Avoid wearing masks class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#lowtemperature">
+<!--  Avoid wearing masks is an individual (instance) of the Infection Possibilities class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#infectingWays"/>
+</rdf:Description>
+
+
+<!-- Sub classes of symptoms class starts from here -->
+<!-- OWL SubClass Definition - cough -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#cough">
+    <!-- cough is a subclassification of Symptoms -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#symptoms"/>
+    <rdfs:label>Cough</rdfs:label>
+    <rdfs:comment>Cough etc</rdfs:comment>
+</owl:Class>
+
+
+<!--  Define the Cough class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#cough">
+<!--  Cough is an individual of the Symptoms class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#symptoms"/>
+</rdf:Description>
+
+<!-- OWL SubClass Definition - headache -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#headache">
+    <!-- headache is a subclassification of Symptoms -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#symptoms"/>
+    <rdfs:label>Headache</rdfs:label>
+    <rdfs:comment>Headache etc</rdfs:comment>
+</owl:Class>
+
+
+<!--  Define the Headache class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#headache">
+<!--  Headache is an individual of the Symptoms class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#symptoms"/>
+</rdf:Description>
+
+<!-- OWL SubClass Definition - Nausea and Vomiting -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#nauseaOrVomitting">
+    <!-- Nausea and Vomiting is a subclassification of Symptoms -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#symptoms"/>
+    <rdfs:label>Nausea and Vomiting</rdfs:label>
+    <rdfs:comment>Nausea and Vomiting etc</rdfs:comment>
+</owl:Class>
+
+
+<!--  Define the Muscle and body aches class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#nauseaOrVomitting">
+<!--  Muscle and body aches is an individual  of the Symptoms class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#symptoms"/>
+</rdf:Description>
+
+<!-- OWL SubClass Definition - Muscle and body aches -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#muscleOrBodyAches">
+    <!-- Muscle and body aches is a subclassification of Symptoms -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#symptoms"/>
+    <rdfs:label>Muscle and body aches</rdfs:label>
+    <rdfs:comment>Muscle and body aches etc</rdfs:comment>
+</owl:Class>
+
+
+<!--  Define the Muscle and body aches class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#muscleOrBodyAches">
+<!--  Muscle and body aches is an individual  of the Symptoms class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#symptoms"/>
+</rdf:Description>
+
+<!-- OWL SubClass Definition - fatigue -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#fatigue">
+    <!-- fatigue is a subclassification of Symptoms -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#symptoms"/>
+    <rdfs:label>Fatigue</rdfs:label>
+    <rdfs:comment>Fatigue etc</rdfs:comment>
+</owl:Class>
+
+
+<!--  Define the fatigue class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#fatigue">
+<!--  fatigue is an individual of the Symptoms class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#symptoms"/>
+</rdf:Description>
+
+
+<!-- Sub classes of precautions class starts from here -->
+<!-- OWL SubClass Definition - Getting vaccinated -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#getvaccinated">
+    <!-- Getting vaccinated is a subclassification of Precautions -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#precautions"/>
+    <rdfs:label>Getting vaccinated</rdfs:label>
+    <rdfs:comment>Getting vaccinated etc</rdfs:comment>
+</owl:Class>
+
+
+<!--  Define the Getting vaccinated class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#getvaccinated">
+<!--  Getting vaccinated is an individual of the Precautions class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#precautions"/>
+</rdf:Description>
+
+<!-- OWL SubClass Definition - Wear face masks -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#wearingFaceMasks">
+    <!-- Wear face masks is a subclassification of Precautions -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#precautions"/>
+    <rdfs:label>Wearing face masks</rdfs:label>
+    <rdfs:comment>Wearing face masks etc</rdfs:comment>
+</owl:Class>
+
+
+<!--  Define the Wear face masks class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#wearingFaceMasks">
+<!--  Wear face masks is an individual  of the Precautions class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#precautions"/>
+</rdf:Description>
+
+<!-- OWL SubClass Definition - Wash hands frequently -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#washHandsFrequently">
+    <!-- Masks is a subclassification of Precautions -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#precautions"/>
+    <rdfs:label>Wash hands frequently</rdfs:label>
+    <rdfs:comment>Wash hands frequently</rdfs:comment>
+</owl:Class>
+
+
+<!--  Define the Clean Surface class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#washHandsFrequently">
+<!--  Masks is an individual of the Precautions class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#precautions"/>
+</rdf:Description>
+
+<!-- OWL SubClass Definition - Clean Surface -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#cleanSurface">
+    <!-- Advocacy is a subclassification of Precautions -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#precautions"/>
+    <rdfs:label>Clean surface</rdfs:label>
+    <rdfs:comment>Clean surface</rdfs:comment>
+</owl:Class>
+
+
+<!--  Define the Clean Surface class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#cleanSurface">
+<!--  Clean Surface is an individual of the Precautions class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#precautions"/>
+</rdf:Description>
+
+<!-- OWL SubClass Definition - Keep distance -->
+<owl:Class rdf:about="http://www.linkeddatatools.com/Covid-19#keepDistance">
+    <!-- Keep distance is a subclassification of Precautions -->
+    <rdfs:subClassOf rdf:resource="http://www.linkeddatatools.com/Covid-19#precautions"/>
+    <rdfs:label>Keep distance</rdfs:label>
+    <rdfs:comment>Keep distance</rdfs:comment>
+</owl:Class>
+
+
+<!--  Define the Keep distance class instance  -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/Covid-19#keepDistance">
+<!--  Keep distance is an individual for the Precautions class  -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/Covid-19#precautions"/>
+</rdf:Description>
+
+
+</rdf:RDF>
